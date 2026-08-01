@@ -1,0 +1,36 @@
+<!-- pages/admin-review/admin-review.wxml — 管理员审核界面（Story 30 客户端） -->
+<view class="page">
+  <view wx:if="{{!isAdmin}}" class="empty">无管理员权限</view>
+
+  <block wx:elif="{{loading}}">
+    <view class="empty status-live" aria-live="polite">加载中…</view>
+  </block>
+
+  <block wx:elif="{{list.length === 0}}">
+    <view class="empty status-live" aria-live="polite">暂无待审核投稿</view>
+  </block>
+
+  <block wx:else>
+    <view class="review-item" wx:for="{{list}}" wx:key="id" aria-role="button" aria-label="审核{{item.name}}，提交于{{item.timeText}}" hover-class="interactive-pressed" data-id="{{item.id}}" bindtap="onDetail">
+      <text class="item-name">{{item.name}}</text>
+      <text class="item-time">{{item.timeText}}</text>
+      <text class="item-arrow">›</text>
+    </view>
+  </block>
+
+  <!-- 审核详情（云端联调后完整展示） -->
+  <view wx:if="{{detailVisible}}" class="mask" bindtap="onCloseDetail">
+    <view class="panel" catchtap="noop">
+      <view class="panel-title">投稿详情</view>
+      <view wx:if="{{detail}}" class="detail-body">
+        <text>审核操作开发中（云端联调后可用）</text>
+        <textarea id="reject-reason" name="rejectReason" aria-label="拒绝原因，拒绝时必填" class="reject-input" placeholder="拒绝原因（拒绝时必填）" bindinput="onRejectReason" />
+        <view class="actions">
+          <button class="btn-ghost" bindtap="onReject" loading="{{detail.submitting}}" disabled="{{detail.submitting}}">拒绝</button>
+          <button class="btn-primary" bindtap="onApprove" loading="{{detail.submitting}}" disabled="{{detail.submitting}}">通过</button>
+        </view>
+      </view>
+      <view wx:else class="empty small">暂无数据</view>
+    </view>
+  </view>
+</view>

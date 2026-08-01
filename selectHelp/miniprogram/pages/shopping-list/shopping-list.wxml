@@ -1,0 +1,38 @@
+<!-- pages/shopping-list/shopping-list.wxml — 采购清单（Story 19） -->
+<view class="page">
+  <view wx:if="{{items.length === 0}}" class="empty status-live" aria-live="polite">采购清单是空的</view>
+
+  <block wx:else>
+    <button wx:if="{{doneCount > 0}}" class="ui-action clear-bar" aria-label="清理{{doneCount}}个已完成采购项" hover-class="interactive-pressed" bindtap="onClearDone">
+      <text>清理 {{doneCount}} 个已完成项 ›</text>
+    </button>
+
+    <view class="shop-item {{item.done ? 'item-done' : ''}}" wx:for="{{items}}" wx:key="id">
+      <button class="ui-action item-check {{item.done ? 'check-on' : ''}}" aria-label="{{item.done ? '标记' + item.name + '为未完成' : '标记' + item.name + '为已完成'}}" hover-class="interactive-pressed" data-id="{{item.id}}" catchtap="onToggle">
+        <text>{{item.done ? '✓' : ''}}</text>
+      </button>
+      <view class="item-body">
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-need">{{displayAmount(item)}}</text>
+      </view>
+      <button class="ui-action ui-action-text item-del" aria-label="删除{{item.name}}" hover-class="interactive-pressed" data-id="{{item.id}}" catchtap="onDelete">删除</button>
+    </view>
+  </block>
+
+  <view class="add-bar">
+    <button class="btn-primary" bindtap="onOpenManual">手动添加</button>
+  </view>
+
+  <!-- 手动添加弹层 -->
+  <view wx:if="{{manualVisible}}" class="form-mask" bindtap="onCloseManual">
+    <view class="form-panel" catchtap="noop">
+      <view class="form-title">添加采购项</view>
+      <input id="shopping-name" name="shoppingName" aria-label="采购食材名称，必填" class="form-input" placeholder="食材名称" value="{{manualName}}" bindinput="onManualName" />
+      <input id="shopping-amount" name="shoppingAmount" aria-label="采购数量，单位为个" class="form-input" type="digit" placeholder="数量（个）" value="{{manualAmount}}" bindinput="onManualAmount" />
+      <view class="form-actions">
+        <button class="btn-ghost" bindtap="onCloseManual">取消</button>
+        <button class="btn-primary" bindtap="onManualSubmit">添加</button>
+      </view>
+    </view>
+  </view>
+</view>

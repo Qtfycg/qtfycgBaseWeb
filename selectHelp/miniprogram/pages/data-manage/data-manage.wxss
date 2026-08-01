@@ -1,0 +1,38 @@
+/* pages/data-manage/data-manage.wxss */
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.manage-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1rpx solid var(--color-border);
+  font-size: var(--font-size-md);
+  width: 100%;
+  min-height: 88rpx;
+  touch-action: manipulation;
+}
+
+.manage-row:last-child {
+  border-bottom: none;
+}
+
+.manage-danger {
+  color: var(--color-danger);
+}
+
+.arrow {
+  color: var(--color-text-secondary);
+}
+
+.tip {
+  margin-top: var(--spacing-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  word-break: break-word;
+}

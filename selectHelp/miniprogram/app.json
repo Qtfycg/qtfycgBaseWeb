@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pantry/pantry",
+    "pages/profile/profile",
+    "pages/recipe-detail/recipe-detail",
+    "pages/history/history",
+    "pages/shopping-list/shopping-list",
+    "pages/preference/preference",
+    "pages/delivery-detail/delivery-detail",
+    "pages/submission/submission",
+    "pages/admin-review/admin-review",
+    "pages/data-manage/data-manage"
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "吃什么"
+      },
+      {
+        "pagePath": "pages/pantry/pantry",
+        "text": "食材"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "selectHelp",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

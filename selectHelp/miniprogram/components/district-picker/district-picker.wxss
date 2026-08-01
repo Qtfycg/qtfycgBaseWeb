@@ -1,0 +1,71 @@
+/* components/district-picker/district-picker.wxss */
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 200;
+}
+
+.panel {
+  width: 100%;
+  background: var(--color-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.desc {
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.chip {
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  background: #f5f5f5;
+  font-size: var(--font-size-sm);
+  min-height: 72rpx;
+  touch-action: manipulation;
+}
+
+.chip-active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.actions .btn-primary,
+.actions .btn-ghost {
+  flex: 1;
+}
+
+.btn-ghost {
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) 0;
+}

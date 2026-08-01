@@ -1,0 +1,397 @@
+/* pages/index/index.wxss — "吃什么"推荐首页 */
+.page {
+  min-height: 100vh;
+  padding-bottom: 200rpx;
+}
+
+/* === 顶部问候区 === */
+.header {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+  background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 100%);
+}
+
+.header-title {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  letter-spacing: 1rpx;
+}
+
+.header-sub {
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+}
+
+/* === 降级提示条（Story 22） === */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm) var(--spacing-md) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: #fff7e6;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: #ad6800;
+}
+
+.banner-text {
+  flex: 1;
+}
+
+.banner-text,
+.shortfall-text,
+.candidate-name,
+.reason-text {
+  min-width: 0;
+  word-break: break-word;
+}
+
+.banner-arrow {
+  color: #ad6800;
+}
+
+/* === 加载骨架屏 === */
+.loading-area {
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.skeleton-card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.skeleton-line {
+  height: 28rpx;
+  border-radius: 8rpx;
+  background: linear-gradient(90deg, #f0f1f3 25%, #e6e8eb 37%, #f0f1f3 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton-line-short {
+  width: 40%;
+}
+
+.skeleton-line-mid {
+  width: 60%;
+}
+
+.skeleton-line-long {
+  width: 85%;
+  margin-bottom: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* === 空状态 === */
+.empty-state {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.empty-icon {
+  font-size: 96rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.empty-detail {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.empty-btn {
+  width: 320rpx;
+  margin-top: var(--spacing-md);
+}
+
+/* === 提示 === */
+.shortfall {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--spacing-sm) var(--spacing-md) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: #fff7e6;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: #ad6800;
+}
+
+.shortfall-link {
+  color: #ad6800;
+  font-weight: 500;
+}
+
+.diversity {
+  margin: var(--spacing-xs) var(--spacing-lg) 0;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+/* === 候选卡片 === */
+.candidate-card {
+  background: var(--color-card);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s ease;
+}
+
+.candidate-card:active {
+  transform: scale(0.98);
+}
+
+.candidate-top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 4rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.badge-cook {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.badge-delivery {
+  background: #ecf5ff;
+  color: var(--color-info);
+}
+
+.candidate-name {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.candidate-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.meta-item {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  background: #f5f6f7;
+  padding: 4rpx 14rpx;
+  border-radius: 999rpx;
+}
+
+.candidate-reasons {
+  margin-top: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.reason {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.reason-icon {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+.reason-text {
+  color: var(--color-primary-deep);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+/* === 操作按钮 === */
+.action-bar {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) var(--spacing-md);
+}
+
+.action-refresh {
+  flex: 1.4;
+}
+
+.action-filter {
+  flex: 1;
+}
+
+/* === 弹层通用 === */
+.panel-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.panel {
+  width: 100%;
+  background: var(--color-card);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+  max-height: 82vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: slide-up 0.25s ease;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(60rpx);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === 评价弹层（Story 21） === */
+.rating-panel {
+  text-align: center;
+}
+
+.rating-row {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-lg) 0;
+}
+
+.rating-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  transition: background 0.15s;
+  min-height: 72rpx;
+  touch-action: manipulation;
+}
+
+.rating-option:active {
+  background: #f5f6f7;
+}
+
+.rating-icon {
+  font-size: 64rpx;
+}
+
+.rating-label {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+}
+
+.rating-skip {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-sm) 0;
+  min-height: 72rpx;
+}
+
+/* === 条件面板（Story 14） === */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.panel-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.panel-reset {
+  color: var(--color-info);
+  font-size: var(--font-size-sm);
+  min-height: 72rpx;
+}
+
+.panel-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.panel-label {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.option-chip {
+  padding: 10rpx 26rpx;
+  border-radius: 999rpx;
+  background: #f5f6f7;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  min-height: 72rpx;
+  touch-action: manipulation;
+  transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.option-active {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 4rpx 12rpx rgba(7, 193, 96, 0.3);
+}
+
+.panel-apply {
+  margin-top: var(--spacing-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line,
+  .panel {
+    animation: none;
+  }
+
+  .candidate-card,
+  .rating-option,
+  .option-chip {
+    transition: none;
+  }
+}

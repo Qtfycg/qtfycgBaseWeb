@@ -1,0 +1,43 @@
+/* pages/profile/profile.wxss */
+.profile-scroll {
+  height: 100vh;
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+}
+
+.section {
+  background: var(--color-card);
+  margin: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.section-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.section-desc {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  word-break: break-word;
+}
+
+.section-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  margin-right: var(--spacing-xs);
+}
+
+.section-arrow {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}

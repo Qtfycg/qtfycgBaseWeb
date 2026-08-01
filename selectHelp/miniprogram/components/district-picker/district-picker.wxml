@@ -1,0 +1,22 @@
+<!-- components/district-picker/district-picker.wxml — 深圳行政区选择器（Story 22） -->
+<view wx:if="{{visible}}" class="mask" bindtap="onClose">
+  <view class="panel" catchtap="noop">
+    <view class="title">选择行政区</view>
+    <view class="desc">未开启定位时，可手动选择所在区域继续使用</view>
+    <view class="grid">
+      <button
+        wx:for="{{districts}}"
+        wx:key="*this"
+        class="ui-action chip {{selected === item ? 'chip-active' : ''}}"
+        aria-label="{{item}}，{{selected === item ? '已选中' : '未选中'}}"
+        hover-class="interactive-pressed"
+        data-value="{{item}}"
+        bindtap="onSelect"
+      >{{item}}</button>
+    </view>
+    <view class="actions">
+      <button class="btn-ghost" bindtap="onClose">取消</button>
+      <button class="btn-primary" bindtap="onConfirm">确定</button>
+    </view>
+  </view>
+</view>

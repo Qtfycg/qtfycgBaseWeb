@@ -1,0 +1,6 @@
+{"type":"server-started","port":58965,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:58965","screen_dir":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\content","state_dir":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\state"}
+{"type":"screen-added","file":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\content\\home-style.html"}
+{"type":"screen-added","file":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\content\\waiting-features.html"}
+{"type":"screen-added","file":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\content\\core-flow.html"}
+{"type":"screen-added","file":"D:\\code\\warehouse\\warehouse\\qtfycgBaseWeb\\selectHelp\\.superpowers\\brainstorm\\meal-ui-20260727\\content\\page-architecture.html"}
+{"type":"server-stopped","reason":"idle timeout"}

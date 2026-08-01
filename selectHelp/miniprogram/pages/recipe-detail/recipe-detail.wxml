@@ -1,0 +1,42 @@
+<!-- pages/recipe-detail/recipe-detail.wxml — 自做候选详情页（Story 15） -->
+<view class="page">
+  <view wx:if="{{loading}}" class="empty status-live" aria-live="polite">加载中…</view>
+  <view wx:elif="{{notFound}}" class="empty status-live" aria-live="polite">菜谱不存在或已下架</view>
+
+  <block wx:else>
+    <view class="card">
+      <view class="recipe-name">{{recipe.name}}</view>
+      <view class="recipe-desc">{{recipe.description}}</view>
+      <view class="recipe-tags">
+        <text class="tag tag-success" wx:for="{{recipe.tasteTags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="recipe-meta">
+        <text>约 {{recipe.durationMinutes}} 分钟</text>
+        <text>{{recipe.baseServings}} 人份</text>
+        <text wx:if="{{recipe.estimatedCost != null}}">食材约 ¥{{recipe.estimatedCost}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">食材清单 · 库存覆盖 {{coverage}}%</view>
+      <view class="ing-row" wx:for="{{ingredients}}" wx:key="name">
+        <text class="ing-name">{{item.name}}</text>
+        <text class="ing-amount">{{item.text}}</text>
+        <text class="tag ing-status tag-{{item.status === 'have' ? 'success' : item.status === 'insufficient' ? 'warning' : 'danger'}}">{{item.note}}</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">烹饪步骤</view>
+      <view class="step" wx:for="{{recipe.steps}}" wx:key="*this">
+        <text class="step-index">{{index + 1}}.</text>
+        <text class="step-text">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="action-bar">
+      <button class="btn-ghost" bindtap="onViewShoppingList">查看采购清单</button>
+      <button class="btn-primary" bindtap="onConfirm">确认本餐选择</button>
+    </view>
+  </block>
+</view>

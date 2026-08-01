@@ -1,0 +1,37 @@
+<!-- pages/delivery-detail/delivery-detail.wxml — 外卖候选详情页（Story 25） -->
+<view class="page">
+  <view wx:if="{{loading}}" class="empty status-live" aria-live="polite">加载中…</view>
+  <view wx:elif="{{notFound}}" class="empty status-live" aria-live="polite">商家不存在或数据暂不可用</view>
+
+  <block wx:elif="{{merchant}}">
+    <view class="card">
+      <view class="name">{{merchant.name}}</view>
+      <view class="info-row">{{merchant.distanceText}}</view>
+      <view class="info-row">{{merchant.ratingText}}</view>
+      <view class="info-row open">{{merchant.openText}}</view>
+      <view class="info-row">{{merchant.deliveryText}}</view>
+    </view>
+
+    <!-- 菜品列表：有数据展示，无数据标注 -->
+    <view class="card">
+      <view class="card-title">{{merchant.menuText}}</view>
+      <view wx:if="{{merchant.hasMenu}}">
+        <view class="menu-row" wx:for="{{merchant.menuItems}}" wx:key="name">
+          <text class="menu-name">{{item.name}}</text>
+          <text class="menu-price">{{item.priceText}}</text>
+        </view>
+      </view>
+      <view wx:else class="empty small status-live" aria-live="polite">暂无实时数据</view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">数据说明</view>
+      <view class="source">{{merchant.sourceText}}</view>
+      <view class="source-note">动态数据以来源方更新为准；未授权字段不展示。</view>
+    </view>
+
+    <view class="action-bar">
+      <button class="btn-primary" bindtap="onConfirm">确认本餐选择（预计花费）</button>
+    </view>
+  </block>
+</view>

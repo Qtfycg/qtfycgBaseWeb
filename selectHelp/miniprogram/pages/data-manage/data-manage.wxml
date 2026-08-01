@@ -1,0 +1,46 @@
+<!-- pages/data-manage/data-manage.wxml — 本地数据管理与隐私合规（Story 34） -->
+<view class="page">
+  <view class="card">
+    <view class="card-title">本地数据</view>
+    <button class="ui-action manage-row" aria-label="清除历史记录，不可恢复" hover-class="interactive-pressed" bindtap="onClearHistory">
+      <text>清除历史记录</text>
+      <text class="arrow">›</text>
+    </button>
+    <button class="ui-action manage-row" aria-label="重置推荐学习，不可恢复" hover-class="interactive-pressed" bindtap="onResetLearning">
+      <text>重置推荐学习</text>
+      <text class="arrow">›</text>
+    </button>
+    <button class="ui-action manage-row" aria-label="清除食材数据，不可恢复" hover-class="interactive-pressed" bindtap="onClearPantry">
+      <text>清除食材数据</text>
+      <text class="arrow">›</text>
+    </button>
+    <button class="ui-action manage-row manage-danger" aria-label="清除所有本地数据，不可恢复" hover-class="interactive-pressed" bindtap="onClearAll">
+      <text>清除所有本地数据</text>
+      <text class="arrow">›</text>
+    </button>
+    <view class="tip">清除操作不可恢复；不影响云端投稿和管理员审核记录。</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">隐私设置</view>
+    <button class="ui-action manage-row" hover-class="interactive-pressed" bindtap="onLocationHelp">
+      <text>定位用途说明</text>
+      <text class="arrow">›</text>
+    </button>
+    <button class="ui-action manage-row" hover-class="interactive-pressed" bindtap="onOpenDistrictPicker">
+      <text>手动选择行政区</text>
+      <text class="arrow">›</text>
+    </button>
+    <button class="ui-action manage-row" hover-class="interactive-pressed" bindtap="onPrivacyGuide">
+      <text>隐私保护指引</text>
+      <text class="arrow">›</text>
+    </button>
+    <view wx:if="{{selectedDistrict}}" class="tip">当前手动选择：{{selectedDistrict}}</view>
+  </view>
+
+  <district-picker
+    visible="{{districtPickerVisible}}"
+    bind:confirm="onDistrictConfirm"
+    bind:close="onDistrictClose"
+  />
+</view>

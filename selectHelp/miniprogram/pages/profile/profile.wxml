@@ -1,0 +1,48 @@
+<!-- pages/profile/profile.wxml — "我的"Tab -->
+<scroll-view class="profile-scroll" scroll-y>
+  <!-- 偏好设置 Section（Story 37） -->
+  <view class="section" aria-role="button" aria-label="打开默认偏好设置，预算、时间、口味、距离" hover-class="interactive-pressed" bindtap="onPreferenceTap">
+    <view class="section-row">
+      <text class="section-title">默认偏好设置</text>
+      <text class="section-arrow" aria-hidden="true">›</text>
+    </view>
+    <view class="section-desc">预算、时间、口味、距离</view>
+  </view>
+
+  <!-- 历史记录 Section（Story 20） -->
+  <view class="section" aria-role="button" aria-label="打开用餐历史，当前{{historyCount}}次记录" hover-class="interactive-pressed" bindtap="onHistoryTap">
+    <view class="section-row">
+      <text class="section-title">用餐历史</text>
+      <text wx:if="{{historyCount > 0}}" class="section-count">{{historyCount}} 次记录</text>
+      <text class="section-arrow" aria-hidden="true">›</text>
+    </view>
+    <view class="section-desc">查看以往的用餐选择和评价</view>
+  </view>
+
+  <!-- 投稿 Section（Story 26） -->
+  <view class="section" aria-role="button" aria-label="打开菜谱投稿" hover-class="interactive-pressed" bindtap="onSubmitTap">
+    <view class="section-row">
+      <text class="section-title">菜谱投稿</text>
+      <text class="section-arrow" aria-hidden="true">›</text>
+    </view>
+    <view class="section-desc">分享你的拿手菜</view>
+  </view>
+
+  <!-- 审核 Section（Story 30，仅管理员可见） -->
+  <view class="section" wx:if="{{isAdmin}}" aria-role="button" aria-label="打开投稿审核，仅管理员可见" hover-class="interactive-pressed" bindtap="onAdminReviewTap">
+    <view class="section-row">
+      <text class="section-title">投稿审核</text>
+      <text class="section-arrow" aria-hidden="true">›</text>
+    </view>
+    <view class="section-desc">审核用户投稿（管理员）</view>
+  </view>
+
+  <!-- 数据管理 Section（Story 34） -->
+  <view class="section" aria-role="button" aria-label="打开隐私与数据管理" hover-class="interactive-pressed" bindtap="onDataManageTap">
+    <view class="section-row">
+      <text class="section-title">隐私与数据管理</text>
+      <text class="section-arrow" aria-hidden="true">›</text>
+    </view>
+    <view class="section-desc">清除本地数据、隐私设置</view>
+  </view>
+</scroll-view>

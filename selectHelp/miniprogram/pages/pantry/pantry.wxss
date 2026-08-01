@@ -1,0 +1,188 @@
+/* pages/pantry/pantry.wxss — 食材管理 */
+.page {
+  min-height: 100vh;
+  padding-bottom: 160rpx;
+}
+
+.empty-state {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--color-text-secondary);
+}
+
+.empty-btn {
+  width: 300rpx;
+}
+
+.pantry-item {
+  background: var(--color-card);
+  margin: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.item-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.item-name {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.item-amount {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4rpx;
+}
+
+.item-expiry {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+.item-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.action {
+  font-size: var(--font-size-sm);
+  color: var(--color-info);
+  padding: 4rpx 12rpx;
+  min-height: 72rpx;
+}
+
+.action-danger {
+  color: var(--color-danger);
+}
+
+.add-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+  background: var(--color-card);
+  border-top: 1rpx solid var(--color-border);
+}
+
+/* === 弹层 === */
+.form-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.form-panel {
+  width: 100%;
+  background: var(--color-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom));
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.form-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.form-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-input {
+  background: #f5f5f5;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+}
+
+.picker-value {
+  line-height: 2;
+}
+
+.catalog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.catalog-chip,
+.unit-chip {
+  padding: 10rpx 24rpx;
+  border-radius: 999rpx;
+  background: #f5f5f5;
+  font-size: var(--font-size-sm);
+  min-height: 72rpx;
+  touch-action: manipulation;
+}
+
+.chip-active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.unit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.custom-link {
+  margin-top: var(--spacing-sm);
+  color: var(--color-info);
+  font-size: var(--font-size-sm);
+  min-height: 72rpx;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-ghost {
+  flex: 1;
+}
+
+.btn-ghost {
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-md) 0;
+}
